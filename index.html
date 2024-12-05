@@ -10,11 +10,50 @@
             text-align: center;
             margin-top: 50px;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            display: block;
+            margin: 10px 0;
+            color: blue;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Static Site! 龍  龍  龍  龍  龍  龍  龍</h1>
-    <h1>Welcome to My Static Site! 龍  龍  龍  龍  龍  龍  龍</h1>
+    <h1>Welcome to My Static Site!</h1>
     <p>This is a simple static HTML page deployed on Vercel.</p>
+
+    <!-- 插入图片 -->
+    <h2>Image</h2>
+    <!-- 插入多张图片 -->
+    <h2>Gallery</h2>
+    <img src="images/1.jpeg" alt="Image 1">
+    <img src="images/2.jpeg" alt="Image 2">
+    <img src="images/3.jpeg" alt="Image 3">
+    <img src="images/4.jpeg" alt="Image 4">
+    <img src="images/5.jpeg" alt="Image 5">
+
+
+    <!-- 插入视频 -->
+    <h2>Video</h2>
+    <video controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- X 链接 -->
+    <h2>X (Twitter) Link</h2>
+    <a href="https://x.com/yourusername" target="_blank">Follow me on X</a>
+
+    <!-- Telegram 链接 -->
+    <h2>Telegram Link</h2>
+    <a href="https://t.me/yourusername" target="_blank">Join me on Telegram</a>
 </body>
 </html>
