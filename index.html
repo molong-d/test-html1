@@ -10,6 +10,7 @@
             text-align: center;
             margin: 0;
             animation: flash 3s infinite alternate;
+            position: relative; /* 用于绝对定位鼠标跟随效果 */
         }
         /* 添加动画样式 */
         @keyframes flash {
@@ -44,14 +45,43 @@
             margin: 10px 0;
             color: blue;
             text-decoration: none;
+            cursor: pointer; /* 手形光标 */
         }
-        /* 鼠标悬停时放大效果 */
-        img:hover, video:hover, iframe:hover {
-            transform: scale(1.1); /* 放大10% */
+        /* 鼠标跟随的点 */
+        .dot {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none; /* 防止干扰鼠标事件 */
+        }
+        /* 鼠标移动时更新点的位置 */
+        body:hover .dot {
+            animation: dotAnimation 0.2s infinite;
+        }
+        @keyframes dotAnimation {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
         }
     </style>
 </head>
 <body>
+    <audio autoplay loop id="backgroundAudio">
+        <source src="background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="dot"></div> <!-- 鼠标跟随的点 -->
     <h1>TURING FOREVER!!!</h1>
     <p>Turing will live forever</p>
 
@@ -90,5 +120,25 @@
     <!-- Telegram 链接 -->
     <h2>Telegram Link</h2>
     <a href="https://t.me/yourusername" target="_blank">Join me on Telegram</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('backgroundAudio');
+            const dot = document.querySelector('.dot');
+
+            document.addEventListener('mousemove', function(e) {
+                dot.style.left = e.pageX + 'px';
+                dot.style.top = e.pageY + 'px';
+            });
+
+            document.addEventListener('mouseover', function() {
+                audio.play();
+            });
+
+            document.addEventListener('mouseout', function() {
+                audio.pause();
+            });
+        });
+    </script>
 </body>
 </html>
