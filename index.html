@@ -9,14 +9,19 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
+            margin-left: 0;
+            margin-right: 0;
         }
         img {
             max-width: 100%;
             height: auto;
         }
         video {
-            max-width: 500%;
+            width: 90%; /* 增加视频宽度为页面宽度的 90% */
+            max-width: 1200px; /* 设置一个最大宽度限制 */
             height: auto;
+            margin: 20px auto; /* 上下居中 */
+            display: block;
         }
         a {
             display: block;
@@ -27,7 +32,6 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to My Static Site!</h1>
     <h1>Welcome to My Static Site!</h1>
     <p>This is a simple static HTML page deployed on Vercel.</p>
 
@@ -40,7 +44,6 @@
     <img src="3.jpeg" alt="Image 3">
     <img src="4.jpeg" alt="Image 4">
     <img src="5.jpeg" alt="Image 5">
-
 
     <!-- 插入视频 -->
     <h2>Video</h2>
